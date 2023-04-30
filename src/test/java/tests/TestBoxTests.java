@@ -30,7 +30,7 @@ String permanentAddress = "Alex Address";
 
         $("#output #name").shouldHave(text("Alex"));
         $("#output #email").shouldHave(text("Alex@alex.com"));
-        $("#output #currentAddress").shouldHave(text("Alex Address"));
+        $("#output p#currentAddress").shouldHave(text("Alex Address"));
         $("#output #permanentAddress").shouldHave(text(permanentAddress));
     }
 
