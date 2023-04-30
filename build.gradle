@@ -4,5 +4,19 @@ plugins {
 repositories {
     mavenCentral()
 }
-dependecies{
+dependencies {
+    testImplementation (
+            "com.codeborne:selenide:5.25.0",
+            "org.junit.jupiter:junit-jupiter-api:5.8.0")/* это чтобы скачалось из репозитория все существующие нужные модули*/
+    testRuntimeOnly ("org.slf4j:slf4j-simple:1.7.29",
+            "org.junit.jupiter:junit-jupiter-engine:5.8.0")
+    /** Эта строчка нужна чтоб работало все одинаково и в Идее и в консоли
+     то есть в рантайме, где бы мы ни запускали наши тесты, мы указываем, что должен использоваться  junit-jupiter
+     То есть это штука, благодаря которой все будет работать одинаково в люборй среде исполнения
+     Без этого может запуститься в IDEA, но не запустится в Дженкинсе например, или наоборот*/
+}
+
+
+test {
+   useJUnitPlatform()
 }
