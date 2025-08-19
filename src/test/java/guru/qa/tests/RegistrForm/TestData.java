@@ -1,4 +1,4 @@
-package guru.qa.tests;
+package guru.qa.tests.RegistrForm;
 
 public class TestData {
     public static String

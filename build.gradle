@@ -9,13 +9,18 @@ repositories {
     mavenCentral()
 }
 
+//добавляем чтоб убрать возможные проблемы с кодировкой кириллица):
+compileTestJava {
+    options.encoding = 'UTF-8'
+}
+
 dependencies {
     implementation(
-            'com.codeborne:selenide:6.19.1',
+            'com.codeborne:selenide:7.9.4',
             "com.github.javafaker:javafaker:1.0.2")
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.29",
+    testRuntimeOnly("org.slf4j:slf4j-simple:2.0.16",
             "org.junit.jupiter:junit-jupiter-engine:5.7.1")
 }
 

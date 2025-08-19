@@ -1,4 +1,4 @@
-package guru.qa.tests;
+package guru.qa.tests.RegistrForm;
 
 import com.codeborne.selenide.Configuration;
 //import io.github.bonigarcia.wdm.WebDriverManager;

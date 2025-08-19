@@ -1,6 +1,5 @@
-package guru.qa.tests;
+package guru.qa.tests.RegistrForm;
 
-import com.github.javafaker.Faker;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
@@ -8,18 +7,12 @@ import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
 import static guru.qa.utils.RandomUtils.getRandomString;
-import static guru.qa.tests.TestData.firstName;
-import static guru.qa.tests.TestData.lastName;
 
 
+public class RegistrationFormWithRandomUtilsTests extends TestBase {
 
-public class RegistrationFormWithFakerTests extends TestBase {
-
-    Faker faker = new Faker();
-    String firstName = faker.name().firstName(),
-            lastName = faker.name().lastName(),
-            userEmail = faker.internet().emailAddress(),
-            currentAddress = faker.lebowski().quote();
+    String firstName = getRandomString(10),
+            lastName = getRandomString(10);
 
     @Test
     void fillFormTest() {
@@ -27,7 +20,7 @@ public class RegistrationFormWithFakerTests extends TestBase {
 
         $("#firstName").setValue(firstName);
         $("#lastName").setValue(lastName);
-        $("#userEmail").setValue(userEmail);
+        $("#userEmail").setValue("alex@egorov.com");
         $("#genterWrapper").$(byText("Other")).click();
         $("#userNumber").setValue("1231231231");
         $("#dateOfBirthInput").click();
@@ -36,17 +29,21 @@ public class RegistrationFormWithFakerTests extends TestBase {
         $(".react-datepicker__day--028:not(.react-datepicker__day--outside-month)").click();
         $("#subjectsInput").setValue("Math").pressEnter();
         $("#hobbiesWrapper").$(byText("Reading")).click();
+
+        //этим методом  .uploadFromClasspath будет искать по пути из папки resources нашего проекта:
+        // src/test/resources/img/1.png
         $("#uploadPicture").uploadFromClasspath("img/1.png");
-        $("#currentAddress").setValue(currentAddress);
+
+        $("#currentAddress").setValue("Qa guru street 7");
         $("#state").click();
         $("#stateCity-wrapper").$(byText("NCR")).click();
         $("#city").click();
+        //$(byId("city")).click();
         $("#stateCity-wrapper").$(byText("Delhi")).click();
         $("#submit").click();
-
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
-                text(userEmail), text("28 July,2005"), text(currentAddress));
+                text("alex@egorov.com"), text("28 July,2005"));
     }
 
 }

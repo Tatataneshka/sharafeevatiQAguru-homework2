@@ -1,4 +1,4 @@
-package guru.qa.tests;
+package guru.qa.tests.RegistrForm;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
@@ -7,8 +7,8 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
-import static guru.qa.tests.TestData.firstName;
-import static guru.qa.tests.TestData.lastName;
+import static guru.qa.tests.RegistrForm.TestData.firstName;
+import static guru.qa.tests.RegistrForm.TestData.lastName;
 
 
 public class RegistrationFormTests extends TestBase {
