@@ -43,6 +43,7 @@ public class RegistrationFormWithFakerTests extends TestBase {
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
                 text(userEmail), text("28 July,2005"), text(currentAddress));
+
     }
 
 }

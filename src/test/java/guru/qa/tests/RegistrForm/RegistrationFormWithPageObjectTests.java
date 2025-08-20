@@ -13,6 +13,8 @@ import static guru.qa.tests.RegistrForm.TestData.lastName;
 
 public class RegistrationFormWithPageObjectTests extends TestBase {
 
+    //создать объект класса RegistrationPage (который есть  PageObject)
+    //чтоб через его объект вызывать методы
     RegistrationPage registrationPage = new RegistrationPage();
 
     @Test
@@ -38,7 +40,7 @@ public class RegistrationFormWithPageObjectTests extends TestBase {
         $("#submit").click();
 
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
-        registrationPage.checkResultsValue("Student Name", firstName + " " + lastName);
+        registrationPage.checkResultsValue("Student Name", firstName + " " + lastName);//где параметры это (String key, String value)
 
     }
 

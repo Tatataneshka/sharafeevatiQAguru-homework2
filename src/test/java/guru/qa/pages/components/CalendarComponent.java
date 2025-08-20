@@ -15,7 +15,7 @@ public class CalendarComponent {
 //        $(".react-datepicker__day--028:not(.react-datepicker__day--outside-month)").click();
 //        $(".react-datepicker__day--0" + day + ":not(.react-datepicker__day--outside-month)").click();
 //
-////        String.format
+////      пример использования функции   String.format() - чрез %s подставлять значения
 //        String selector = ".react-datepicker__day--028:not(.react-datepicker__day--outside-month)";
 //        $(selector).click();
 //

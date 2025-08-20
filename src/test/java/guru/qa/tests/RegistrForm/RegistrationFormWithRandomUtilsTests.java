@@ -1,6 +1,10 @@
 package guru.qa.tests.RegistrForm;
 
+import com.github.javafaker.service.FakeValuesService;
+import com.github.javafaker.service.RandomService;
 import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -44,6 +48,11 @@ public class RegistrationFormWithRandomUtilsTests extends TestBase {
         $(".modal-title").shouldHave(text("Thanks for submitting the form"));
         $(".table-responsive").shouldHave(text(firstName + " " + lastName),
                 text("alex@egorov.com"), text("28 July,2005"));
+
+        FakeValuesService fakeValuesService = new FakeValuesService(
+                new Locale("en-GB"), new RandomService());
+
+
     }
 
 }

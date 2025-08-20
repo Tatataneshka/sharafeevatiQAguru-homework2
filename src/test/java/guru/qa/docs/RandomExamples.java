@@ -4,7 +4,7 @@ import static guru.qa.utils.RandomUtils.*;
 
 public class RandomExamples {
     public static void main(String[] args) {
-        System.out.println(getRandomString(32));
+        //System.out.println(getRan domString(32));
 //        $("#id").setValue(getRandomString(32))
 
         String randomMessage = getRandomMessage(32, 42);
